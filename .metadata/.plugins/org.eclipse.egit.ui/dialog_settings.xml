@@ -8,30 +8,30 @@
 		<item value="karthikg &lt;karthikg@CNDKARTHIKG.Virtusa.com&gt;"/>
 	</list>
 	<list key="RepositorySelectionPage.UsedUris">
-		<item value="ssh://karthikg9400%40gmail.com@github.com/karthikg940/virtusaMyworkplace.git"/>
 		<item value="https://github.com/karthikg940/virtusaMyworkplace.git"/>
+		<item value="ssh://karthikg9400%40gmail.com@github.com/karthikg940/virtusaMyworkplace.git"/>
 	</list>
 	<section name="GitCommitMessageComponent">
 	</section>
 	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
 		<item value="642" key="DIALOG_WIDTH"/>
 		<item value="12" key="DIALOG_Y_ORIGIN"/>
-		<item value="640" key="DIALOG_HEIGHT"/>
 		<item value="407" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-	</section>
-	<section name="org.eclipse.egit.ui.internal.dialogs.CheckoutDialog.dialogBounds">
-		<item value="538" key="DIALOG_WIDTH"/>
-		<item value="116" key="DIALOG_Y_ORIGIN"/>
-		<item value="483" key="DIALOG_HEIGHT"/>
-		<item value="459" key="DIALOG_X_ORIGIN"/>
+		<item value="640" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
 		<item value="666" key="DIALOG_WIDTH"/>
 		<item value="134" key="DIALOG_Y_ORIGIN"/>
-		<item value="457" key="DIALOG_HEIGHT"/>
 		<item value="395" key="DIALOG_X_ORIGIN"/>
+		<item value="457" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.CheckoutDialog.dialogBounds">
+		<item value="538" key="DIALOG_WIDTH"/>
+		<item value="116" key="DIALOG_Y_ORIGIN"/>
+		<item value="459" key="DIALOG_X_ORIGIN"/>
+		<item value="483" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>
