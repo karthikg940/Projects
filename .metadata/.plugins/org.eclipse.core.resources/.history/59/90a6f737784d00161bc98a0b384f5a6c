@@ -1,0 +1,50 @@
+package com.virtusa.vhub.partner1.resource.impl;
+
+import java.awt.print.Book;
+import java.io.File;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.virtusa.vhub.partner1.entity.Command;
+import com.virtusa.vhub.partner1.resource.interfac.CommandBuilder;
+
+
+public class CommandBuilderImpl implements CommandBuilder {
+	
+	Command command=new Command();
+	@Override
+	public Command build(String name) {
+		command.setCommand(name);
+		command.setId(1);
+		command.setType("string");
+		
+		 try {
+
+				File file = new File("C:\\file.xml");
+				JAXBContext jaxbContext = JAXBContext.newInstance(Command.class);
+				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+				jaxbMarshaller.marshal(command, file);
+				jaxbMarshaller.marshal(command, System.out);
+
+			      } catch (JAXBException e) {
+				e.printStackTrace();
+			      }
+		 
+		 Client client = ClientBuilder.newBuilder().newClient();
+		 WebTarget target = client.target("http://localhost:8181/hub");
+		 target.register(new )
+		 Invocation.Builder builder = target.request();
+		 Response response = builder.get();
+		 Command command= builder.get(Command.class);
+		return command;
+	}
+}

@@ -1,0 +1,19 @@
+package com.virtusa.routebuilder;
+
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+
+public class TransformXMLProcessor implements Processor{
+
+	@Override
+	public void process(Exchange exchange) throws Exception {
+		
+		OrderBean order=new OrderBean(1,"company1",99);
+		OrderBean order1=new OrderBean(1,"company1",99);
+		OrderBean order2=new OrderBean(1,"company1",99);
+		OrderBean order3=new OrderBean(1,"company1",99);
+		exchange.getOut().setBody(order);	
+		
+	}
+
+}

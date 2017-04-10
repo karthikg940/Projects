@@ -1,0 +1,30 @@
+package com.virtusa.shipment;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.SimpleCommandLinePropertySource;
+
+import com.virtusa.shipment.config.Constants;
+
+@SpringBootApplication
+public class ApplicationLauncher {
+
+	public static void main(String[] args) {
+		SpringApplication application = new SpringApplication(
+				ApplicationLauncher.class);
+		SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(
+				args);
+		addDefaultProfile(application, source);
+		application.run(args);
+	}
+
+	private static void addDefaultProfile(SpringApplication app,
+			SimpleCommandLinePropertySource source) {
+		if (!source.containsProperty("spring.profiles.active")
+				&& !System.getenv().containsKey("SPRING_PROFILES_ACTIVE")) {
+
+			app.setAdditionalProfiles(Constants.SPRING_PROFILE_DEVELOPMENT);
+		}
+	}
+
+}

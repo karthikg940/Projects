@@ -1,0 +1,30 @@
+package com.virtusa.practice;
+
+ class Example1 {
+
+	 public void m1()
+	 {
+		 System.out.println("inside m1 method");
+	 }
+}
+ class Sample extends Example1{
+	 
+	 public void m2(){
+		 System.out.println("inside m2 method");
+	 }
+ }
+ 
+ class Members
+ {
+	 static void m3(Example1 m)
+	 {
+		m.m1();
+		//m.m2();
+		Sample s=(Sample)m;
+		s.m2();
+	 }
+	 public static void main(String[] args) {
+		 Members.m3(new Example1());
+		 Members.m3(new Sample());
+	}
+ }

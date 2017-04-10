@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1466490242261_0" label="syntrac_new" name="syntrac_new">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/syntrac_new" type="4"/>
+<item elementID="=ConsumerApp" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/FirstApp" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467365503885_2" label="vseatfinal" name="vseatfinal">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vseatfinal" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469164034033_3" label="vhub-hub-parent" name="vhub-hub-parent"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469166392254_4" label="vhub-parent" name="vhub-parent">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-shared" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-partner-2" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-consumer-2" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-hub" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-consumer-1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-partner-3" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-parent" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-consumer-3" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/vhub-partner-1" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1466658843047_1" label="Window Working Set" name="Aggregate for window 1466658843046"/>
+</workingSetManager>

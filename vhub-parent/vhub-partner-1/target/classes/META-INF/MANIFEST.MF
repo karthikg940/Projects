@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1469104419214
+Build-Jdk: 1.8.0_40
+Built-By: karthikg
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
+Bundle-Description: vHub Partner 1
+Bundle-ManifestVersion: 2
+Bundle-Name: vHub Partner 1
+Bundle-SymbolicName: com.virtusa.vhub.partner-1
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.virtusa.vhub.partner1.entity;uses:="javax.xml.bind.a
+ nnotation";version="0.0.1",com.virtusa.vhub.partner1.resource.interfac;
+ uses:="javax.ws.rs";version="0.0.1"
+Export-Service: com.virtusa.vhub.partner1.resource.interfac.CommandBuild
+ er
+Import-Package: com.virtusa.vhub.partner1.entity,com.virtusa.vhub.partne
+ r1.resource.interfac,javax.ws.rs;version="[2.0,3)",javax.ws.rs.client;v
+ ersion="[2.0,3)",javax.ws.rs.core;version="[2.0,3)",javax.xml.bind.anno
+ tation,org.osgi.service.blueprint;version="[1.0.0,2.0.0)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.0.0.201509101326

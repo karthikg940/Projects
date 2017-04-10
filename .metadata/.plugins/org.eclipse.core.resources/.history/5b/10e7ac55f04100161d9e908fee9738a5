@@ -1,0 +1,6 @@
+CREATE TABLE SHIPMENT (ID IDENTITY CONSTRAINT ID_PKEY PRIMARY KEY, 
+                       OID IDENTITY, 
+                       PID IDENTITY,
+                       STATUS VARCHAR(20)
+                       CONSTRAINT C_PKEY PRIMARY KEY(OID,PID)
+                       );

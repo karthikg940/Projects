@@ -1,0 +1,13 @@
+package com.virtusa.practice;
+
+public class Puzzle {
+
+	public static void main(String[] args) {
+		System.out.print("H"+"a");
+		System.out.printf("%s",'a');
+		//System.out.println("2+2="+2+2);
+		String letters="ABC";
+		char[] numbers={1,2,3,4};
+		System.out.println(letters+""+numbers);
+}
+}

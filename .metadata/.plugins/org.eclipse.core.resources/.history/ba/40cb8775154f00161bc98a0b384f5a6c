@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://camel.apache.org/schema/cxf
+   http://camel.apache.org/schema/cxf/camel-cxf.xsd
+   http://cxf.apache.org/jaxrs
+   http://cxf.apache.org/schemas/jaxrs.xsd
+   http://camel.apache.org/schema/spring
+   http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+ <jaxrs:server id="restService" depends-on="camelContext" 
+            address="/vhub" createdFromAPI="true" 
+            staticSubresourceResolution="true">
+            <jaxrs:serviceBeans>
+                    <ref bean="commandRouter" />
+            </jaxrs:serviceBeans>
+    </jaxrs:server>
+
+
+ <cxf:rsClient id="rsClient" address="/vhub"  
+                              serviceClass="com.virtusa.vhub.hub.CommandRouterImpl" 
+                      username="santosh" password="pwd" />
+
+	 <cxf:rsServer id="rsServer" address="/vhub" serviceClass="com.virtusa.vhub.hub.CommandRouterImpl" />
+	<bean id="commandRouter" class="com.virtusa.vhub.hub.CommandRouterImpl" init-method="configure">
+	</bean>
+	
+	
+	 <camelContext xmlns="http://camel.apache.org/schema/spring">
+            <package>com.santosh.routes</package>
+            <routeBuilder ref="cityserviceroutebuilder" />
+    </camelContext>
+</blueprint>

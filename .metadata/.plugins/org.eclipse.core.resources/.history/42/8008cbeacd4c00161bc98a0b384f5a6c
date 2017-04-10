@@ -1,0 +1,16 @@
+package com.virtusa.vhub.partner1.resource.interfac;
+
+@Path("say")
+public interface PartnerInt1 {
+
+	@GET
+	@Path("hello/{name}")
+	// Maps for the `hello/John` in the URL
+	public String handleGet(@PathParam("name") String name);
+	
+	@POST
+	@Path("hello/")
+	
+	public String create();
+
+}

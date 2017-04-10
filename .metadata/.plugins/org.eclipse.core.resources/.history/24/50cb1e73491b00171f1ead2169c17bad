@@ -1,0 +1,20 @@
+package com.virtusa.bean;
+
+import org.apache.camel.Handler;
+
+public class HelloBean {
+	
+	public String hello(Document xml)
+	{
+		System.out.println("hello bean");
+		return "hello"+name;
+	}
+	
+	@Handler
+	public String hello1(String name)
+	{
+		System.out.println("hello1 bean");
+		return "hello1"+name;
+	}
+
+}

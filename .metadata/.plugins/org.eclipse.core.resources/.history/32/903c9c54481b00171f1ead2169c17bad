@@ -1,0 +1,17 @@
+package com.virtusa.bean;
+
+public class HelloBean {
+	
+	public String hello(String name)
+	{
+		System.out.println("hello bean");
+		return "hello"+name;
+	}
+	
+	public String hello1(String name)
+	{
+		System.out.println("hello bean");
+		return "hello1"+name;
+	}
+
+}

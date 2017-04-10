@@ -1,0 +1,55 @@
+package com.virtusa.vhub.hub;
+
+import java.util.logging.Logger;
+
+import org.apache.activemq.camel.component.ActiveMQComponent;
+import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+
+import com.virtusa.vhub.partner1.entity.Command;
+public class CommandRouterImpl implements CommandRouter{
+
+	Logger LOGGER = Logger.getLogger(CommandRouterImpl.class.getName());
+	
+	@Override
+	public Command router(Command command) {
+		
+		LOGGER.info("this is entity obj"+command);
+		System.out.println("this is entity obj"+command);
+		CamelContext context = new DefaultCamelContext();
+		try {
+			 ActiveMQComponent component = ActiveMQComponent.activeMQComponent("tcp://localhost:61616"); 
+		        component.setUserName("karaf"); 
+		        component.setPassword("karaf"); 
+			context.addComponent("activemq",component);
+			
+			System.out.println("after local host");
+			context.addRoutes(new RouteBuilder() {
+				@Override
+				public void configure() throws Exception {
+					System.out.println("enterd into configure()");
+					from("activemq:queue:LLY.TRAINING.EMAIL.IN")
+					.to("stream:out");
+					System.out.println("end of conf()");
+				}
+			});
+			ProducerTemplate template = context.createProducerTemplate();
+			System.out.println("end of template");
+			context.start();
+			System.out.println("end of start");
+			 
+			template.sendBody("activemq:LLY.TRAINING.EMAIL.IN", "Hello World");
+			System.out.println("after send body");
+			//Thread.sleep(2000);
+		} finally {
+			context.stop();
+		}
+		return command;
+		
+		
+	}
+
+
+}	

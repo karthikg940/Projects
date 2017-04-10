@@ -1,0 +1,19 @@
+package com.virtusa.bean;
+
+import org.apache.camel.test.spring.CamelSpringTestSupport;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
+
+
+public class SpringFirstTest extends CamelSpringTestSupport{
+
+	@Override
+	protected AbstractApplicationContext createApplicationContext() {
+		 
+		 return new ClassPathXmlApplicationContext("camel.xml");
+	}
+
+}

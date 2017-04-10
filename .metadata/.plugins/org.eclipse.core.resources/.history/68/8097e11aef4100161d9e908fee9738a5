@@ -1,0 +1,1 @@
+CREATE TABLE hello (id IDENTITY , message VARCHAR(100));

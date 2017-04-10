@@ -1,0 +1,61 @@
+package com.virtusa.test.web.rest
+
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+//import org.springframework.boot.actuate.health.OrderedHealthAggregator.StatusComparator;
+import org.springframework.http.MediaType
+import spock.lang.Unroll;
+import static org.hamcrest.Matchers.*;
+
+import com.virtusa.test.base.TransactionalWebIntegrationTest
+import com.virtusa.test.base.WebAppIntegrationBaseSpecification
+
+@TransactionalWebIntegrationTest
+class ShippmentResourceTest extends WebAppIntegrationBaseSpecification {
+
+	@Unroll
+	def "get a record from database" (id,orderId,productId,statusCode) {
+		given:"based on the id we need to fetch a single record from database"
+
+		when: "I have given an id"
+		def createResponse=this.mockMvc.perform(get("/api/shipment/${id}").accept(MediaType.APPLICATION_JSON))
+		then: "a record is fetched"
+		createResponse.andExpect(status().is(statusCode))
+		where:
+		id | orderId | productId | statusCode
+		1  |  1      |   1       | 200
+	}
+	
+	@Unroll
+	def "get the list of records from database" (id,orderId,productId,statusCode) {
+		given:"based on the id we need to fetch a single record from database"
+
+		when: "I call getAll method"
+		def createResponse=this.mockMvc.perform(get("/api/shipment").accept(MediaType.APPLICATION_JSON))
+		then: "list of records are fetched"
+		createResponse.andExpect(status().is(statusCode))
+		where:
+		id | orderId | productId | statusCode
+		1  |  1      |   1       | 200
+		2  |  2      |   2       | 200
+	}
+	
+	@Unroll
+	def "update a record in database" (id,orderId,productId,statusCode) {
+		given:"based on the id we need to fetch a single record from database"
+		def inputJson =  JsonOutput.toJson([firstName: firstName, lastName: lastName, dob: dob, weight: weight, mrn:mrn, gender: gender,
+			phone1: phone1, phone2: phone2, line1: line1, line2:line2, city:city, state: state, zip: zip, email: email, maritalStatus: maritalStatus])
+		when: "I send an id"
+		def createResponse=this.mockMvc.perform(get("/api/shipment/${id}").accept(MediaType.APPLICATION_JSON))
+		then: "a record is fetched from the database"
+		createResponse.andExpect(status().is(statusCode))
+		where:
+		id | orderId | productId | statusCode
+		1  |  1      |   1       | 200
+		2  |  2      |   2       | 200
+	}
+	
+}

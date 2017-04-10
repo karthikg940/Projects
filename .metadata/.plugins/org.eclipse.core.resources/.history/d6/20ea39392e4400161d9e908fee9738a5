@@ -1,0 +1,7 @@
+package com.virtusa.test.web.rest;
+
+
+@TransactionalWebIntegrationTest
+public class ShipmentResourceTest{
+
+}

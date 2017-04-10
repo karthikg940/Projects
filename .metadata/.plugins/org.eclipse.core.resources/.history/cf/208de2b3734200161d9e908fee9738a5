@@ -1,0 +1,24 @@
+package com.virtusa.shipment.springboot.biz.service;
+
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.virtusa.shipment.springboot.data.enity.HelloEntity;
+import com.virtusa.shipment.springboot.data.repository.HelloRepository;
+
+/**
+ * Hello Service.
+ */
+@Service
+@Transactional
+public class HelloService {
+
+    @Inject
+    private HelloRepository helloRepository;
+
+    public HelloEntity sayHello(Long id) {
+        return helloRepository.findOne(id);
+    }
+}

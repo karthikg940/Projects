@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;AppLauncher.java&apos; to &apos;SecApp/src/main/java/com.virtusa.firstapp&apos;&#x0D;&#x0A;- Original project: &apos;SecApp&apos;&#x0D;&#x0A;- Destination element: &apos;SecApp/src/main/java/com.virtusa.firstapp&apos;&#x0D;&#x0A;- Original element: &apos;AppLauncher.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java&lt;com.virtusa.firstapp" element1="/src\/main\/java&lt;{AppLauncher.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1467286602063" units="1" version="1.0"/>
+</session>

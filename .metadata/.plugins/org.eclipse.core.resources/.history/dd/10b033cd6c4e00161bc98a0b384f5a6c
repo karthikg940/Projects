@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+	xsi:schemaLocation="
+  http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+<cxf:bus id="cxfBus1">
+		<cxf:features>
+			<cxf:logging />
+		</cxf:features>
+	</cxf:bus>
+
+	<jaxrs:server address="/vhub" id="commandRouterService">
+		<jaxrs:serviceBeans>
+			<ref component-id="commandRouter" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	
+	 <service interface="com.virtusa.vhub.hub.CommandRouter"
+		ref="commandRouter" id="commandBuilderRef" />
+	<bean id="commandRouter" class=" com.virtusa.vhub.hub.CommandRouterImpl" /> 
+	
+	
+	<bean id="commandExecutor" class="com.virtusa.vhub.consumer1.CommandExecutorImpl"
+		init-method="execute">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="queue" ref="queue" />
+	</bean>
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+		<property name="userName" value="karaf" />
+		<property name="password" value="karaf" />
+	</bean>
+
+	<bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+		<argument value="LLY.TRAINING.EMAIL.IN" />
+	</bean>
+</blueprint>

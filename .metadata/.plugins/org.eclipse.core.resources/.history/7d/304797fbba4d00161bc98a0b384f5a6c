@@ -1,0 +1,7 @@
+package com.virtusa.vhub.consumer1;
+
+import javax.jms.MessageListener;
+
+public class CommandMessageListener implements MessageListener {
+
+}

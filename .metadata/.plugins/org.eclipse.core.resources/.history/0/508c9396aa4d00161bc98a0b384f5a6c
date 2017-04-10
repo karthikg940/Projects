@@ -1,0 +1,9 @@
+package com.virtusa.vhub.consumer1;
+
+import javax.jms.Message;
+
+public interface CommandRouterInterface {
+	
+	public void executor(Message msg);
+
+}

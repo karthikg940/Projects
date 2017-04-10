@@ -1,0 +1,16 @@
+package com.virtusa.vhub.partner1.resource.impl;
+
+import com.virtusa.vhub.partner1.entity.Command;
+import com.virtusa.vhub.partner1.resource.interfac.CommandBuilder;
+
+public class CommandBuilderImpl implements CommandBuilder {
+	
+	@Override
+	public Command build(Command command) {
+		
+		command.setId(1);
+		command.setType("string");
+		return command;
+	}
+
+}

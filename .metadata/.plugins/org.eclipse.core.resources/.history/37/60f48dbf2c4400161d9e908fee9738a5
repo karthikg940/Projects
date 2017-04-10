@@ -1,0 +1,9 @@
+package com.virtusa.test.web.rest;
+
+import com.virtusa.test.base.TransactionalWebIntegrationTest;
+import com.virtusa.test.base.WebAppIntegrationBaseSpecification;
+
+@TransactionalWebIntegrationTest
+public class ShipmentResourceTest{
+
+}

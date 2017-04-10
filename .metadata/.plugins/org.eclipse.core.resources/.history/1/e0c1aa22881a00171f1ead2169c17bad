@@ -1,0 +1,25 @@
+package com.virtusa.routebuilder;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+
+public class CSVMarshallUnMarshall {
+
+	CamelContext context=new DefaultCamelContext();
+	context.addRoutes(new RouteBuilder() {
+		
+		@Override
+		public void configure() throws Exception {
+			
+			 
+			
+		}
+	});
+	context.start();
+	Thread.sleep(10000);
+	context.stop();
+}
+}
+
+

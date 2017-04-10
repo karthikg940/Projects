@@ -1,0 +1,11 @@
+package com.virtusa.vhub.consumer1;
+
+public class CommandRouterImpl implements CommandRouterInterface{
+
+	@Override
+	public void executor() {
+	 
+		
+	}
+
+}

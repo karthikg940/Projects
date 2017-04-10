@@ -1,0 +1,24 @@
+package com.virtusa.vhub.hub;
+
+import java.util.logging.Logger;
+
+import com.virtusa.vhub.partner1.entity.Command;
+public class CommandRouterImpl implements CommandRouter{
+
+	Logger LOGGER = Logger.getLogger(CommandRouterImpl.class.getName());
+	
+	@Override
+	public Command router(Command command) {
+		
+		LOGGER.info("this is entity obj"+command);
+		System.out.println("this is entity obj"+command);
+		return null;
+	}
+
+	
+
+	
+	 
+	
+	
+}	

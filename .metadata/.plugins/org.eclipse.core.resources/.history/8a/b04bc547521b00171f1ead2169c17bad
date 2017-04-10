@@ -1,0 +1,27 @@
+package com.virtusa.bean;
+
+import org.apache.camel.Body;
+import org.apache.camel.Handler;
+import org.apache.camel.Header;
+
+import com.sun.xml.txw2.Document;
+import com.virtusa.routebuilder.OrderBean;
+
+public class HelloBean {
+	
+	public String hello(String name)
+	{
+		System.out.println("hello bean");
+		return "hello"+name;
+	}
+	
+	@Handler
+	public String hello1(@Header Map name,@Body OrderBean order)
+	{
+		System.out.println("hello1 bean");
+		System.out.println(name);
+		System.out.println(order);
+		return "hello1"+name;
+	}
+
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://camel.apache.org/schema/cxf
+   http://camel.apache.org/schema/cxf/camel-cxf.xsd
+   http://cxf.apache.org/jaxrs
+   http://cxf.apache.org/schemas/jaxrs.xsd
+   http://camel.apache.org/schema/spring
+   http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+ 
+
+  
+	 <cxf:rsServer id="rsServer" address="/vhub" serviceClass="com.virtusa.vhub.hub.CommandRouterImpl" />
+	 
+	 <cxf:rsClient id="rsClient" address="http://localhost:8181/cxf/vhub/api/commandrouter"  
+                              serviceClass="com.virtusa.vhub.partner1.resource.impl.CommandBuilderImpl" />
+	 
+
+	<bean id="commandRouter" class="com.virtusa.vhub.hub.CommandRouterImpl" init-method="configure">
+	</bean>
+	
+	
+	 
+</blueprint>

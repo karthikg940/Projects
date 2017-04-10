@@ -1,0 +1,31 @@
+package com.virtusa.test.web.rest
+
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+//import org.springframework.boot.actuate.health.OrderedHealthAggregator.StatusComparator;
+import org.springframework.http.MediaType
+import spock.lang.Unroll;
+import static org.hamcrest.Matchers.*;
+
+import com.virtusa.test.base.TransactionalWebIntegrationTest
+import com.virtusa.test.base.WebAppIntegrationBaseSpecification
+
+@TransactionalWebIntegrationTest
+class ShippmentResourceTest extends WebAppIntegrationBaseSpecification {
+
+	@Unroll
+	def "get the list from database" (id,orderId,productId,status) {
+		given:"based on the id we need to fetch a single record from database"
+
+		when: "I have given an id"
+		def createResponse=this.mockMvc.perform(get("/api/shipment/${id}").accept(MediaType.APPLICATION_JSON))
+		then: "a record is fetched"
+		createResponse.andExpect(status().is(status))
+		where:
+		id | orderId | productId | status
+		1  |  1      |   1       | 200
+	}
+}

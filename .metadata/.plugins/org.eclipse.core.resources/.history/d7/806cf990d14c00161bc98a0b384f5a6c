@@ -1,0 +1,14 @@
+package com.virtusa.vhub.partner1.resource.interfac;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+@Path("say")
+public interface PartnerInt1 {
+
+	@POST
+	@Consumes(""application/json"")
+	public String create(String command);
+
+}

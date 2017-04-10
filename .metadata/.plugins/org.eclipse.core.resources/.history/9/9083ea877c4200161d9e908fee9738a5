@@ -1,0 +1,10 @@
+package com.virtusa.shipment.springboot.data.repository;
+
+
+import com.virtusa.shipment.data.enity.ShippmentEntity;
+
+public interface ShippmentRepository extends BaseRepository<ShippmentEntity, Long>{
+	
+	
+
+}

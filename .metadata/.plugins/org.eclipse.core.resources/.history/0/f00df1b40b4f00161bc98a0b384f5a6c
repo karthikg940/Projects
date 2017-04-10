@@ -1,0 +1,34 @@
+package com.virtusa.vhub.hub;
+
+import java.util.logging.Logger;
+//
+//import org.apache.activemq.camel.component.ActiveMQComponent;
+//import org.apache.camel.CamelContext;
+//import org.apache.camel.ProducerTemplate;
+//import org.apache.camel.builder.RouteBuilder;
+//import org.apache.camel.impl.DefaultCamelContext;
+
+import org.apache.activemq.camel.component.ActiveMQComponent;
+import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+
+import com.virtusa.vhub.partner1.entity.Command;
+public class CommandRouterImpl extends RouteBuilder implements CommandRouter {
+
+	Logger LOGGER = Logger.getLogger(CommandRouterImpl.class.getName());
+	
+	@Override
+	public Command router(Command command) {
+		
+		LOGGER.info("this is entity obj"+command);
+		System.out.println("this is entity obj"+command);
+		
+		return command;
+		
+		
+	}
+
+
+}	

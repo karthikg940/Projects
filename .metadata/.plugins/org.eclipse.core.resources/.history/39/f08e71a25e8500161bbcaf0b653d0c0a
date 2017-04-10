@@ -1,0 +1,57 @@
+package com.virtusa.transition;
+
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+public class TransitionImpl implements TransititonInterface {
+
+	public Response create(String xmlData) {
+		System.out.println(xmlData);
+		if (xmlData.isEmpty()) {
+			return Response.status(Status.BAD_REQUEST).entity("bad request")
+					.build();
+		} else {
+			return Response.status(Status.CREATED).entity("created").build();
+		}
+	}
+
+	public String get(Long id) {
+		return "Hello World";
+	}
+
+	public String getAll() {
+		return "HelloWorld";
+	}
+
+	public Response update(String xmlData) {
+		System.out.println(xmlData);
+		if (xmlData.isEmpty()) {
+			return Response.status(Status.BAD_REQUEST).entity("bad request")
+					.build();
+		} else {
+			return Response.status(Status.OK)
+					.entity("updated successfully").build();
+		}
+
+	}
+
+	public Response update(String xmlData, Long id) {
+
+		System.out.println(xmlData + "" + id);
+		if (xmlData.isEmpty()) {
+			return Response.status(Status.BAD_REQUEST).entity("bad request")
+					.build();
+		} else {
+			return Response.status(Status.OK)
+					.entity("updated successfully").build();
+		}
+
+	}
+
+	public Response delete(Long id) {
+
+			return Response.status(Status.NO_CONTENT).build();
+		
+	}
+
+}

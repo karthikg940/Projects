@@ -1,0 +1,51 @@
+package com.virtusa.practice;
+
+ class Test3 {
+
+	int x,y;
+}
+
+class ColoredPoint extends Test3
+{
+	int color;
+}
+
+public class Conversions
+{
+	public static void main(String[] args) {
+		
+		long[] l=new long[100];
+		Object o=l;
+		
+		Object o1=l[1];
+		System.out.println(o);
+		System.out.println(o1);
+		Test3[] t3=new Test3[100];
+		ColoredPoint[] cp=new ColoredPoint[199];
+		t3=cp;
+		
+		byte b=-100;
+		char ch=(char)b;
+		System.out.println(ch);
+		char ch1='\u0001';
+	}
+}
+  class StringCheese {
+
+    public static void main(String args[]) {
+
+        byte bytes[] = new byte[256];
+
+        for(int i = 0; i < 256; i++)
+
+            bytes[i] = (byte)i;
+
+        String str = new String(bytes);
+
+        for(int i = 0, n = str.length(); i < n; i++)
+
+            System.out.print((int)str.charAt(i) + " ");
+
+    }
+
+}

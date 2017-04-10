@@ -1,0 +1,10 @@
+package com.virtusa.training.startup.springboot.data.enity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "SHIPMENT")
+public class Shipment {
+
+}

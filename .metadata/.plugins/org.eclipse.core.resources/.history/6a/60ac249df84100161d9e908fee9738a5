@@ -1,0 +1,5 @@
+CREATE TABLE SHIPPMENT (ID LONG , 
+                       OID IDENTITY, 
+                       PID IDENTITY,
+                       STATUS VARCHAR(20)
+                       );

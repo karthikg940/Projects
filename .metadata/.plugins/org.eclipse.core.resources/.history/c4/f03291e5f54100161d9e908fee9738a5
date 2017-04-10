@@ -1,0 +1,5 @@
+package com.virtusa.training.startup.springboot.data.repository;
+
+public class ShippmentRepository {
+
+}

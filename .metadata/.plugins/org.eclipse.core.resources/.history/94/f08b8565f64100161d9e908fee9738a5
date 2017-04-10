@@ -1,0 +1,6 @@
+package com.virtusa.training.startup.springboot.biz.service;
+
+public class ShippmentService {
+
+	
+}

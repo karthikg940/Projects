@@ -1,0 +1,23 @@
+package com.virtusa.practice;
+
+public class Point {
+
+	int x;
+	int y;
+	
+	 /*void point() {
+		System.out.println("inside default constructor");
+
+	}
+	 
+	 void point(int x,int y)
+	 {
+		 System.out.println("inside parameter constructor");
+		 this.x=x;
+		 this.y=y;
+	 }*/
+	
+	 
+	
+	
+}

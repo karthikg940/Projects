@@ -1,0 +1,3 @@
+com\virtusa\vhub\partner1\entity\Command.class
+com\virtusa\vhub\partner1\resource\interfac\CommandBuilder.class
+com\virtusa\vhub\partner1\resource\impl\CommandBuilderImpl.class

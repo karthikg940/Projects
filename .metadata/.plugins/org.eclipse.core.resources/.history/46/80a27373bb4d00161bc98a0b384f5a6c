@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+	xsi:schemaLocation="
+  http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+
+	<service interface="com.virtusa.vhub.partner1.resource.interfac.CommandBuilder"
+		ref="commandBuilder" id="commandBuilderRef" />
+	<bean id="commandBuilder"
+		class=" com.virtusa.vhub.partner1.resource.impl.CommandBuilderImpl" />
+
+</blueprint>

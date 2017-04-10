@@ -1,0 +1,5 @@
+package com.virtusa.vhub.consumer1;
+
+public class CommandRouterImpl {
+
+}

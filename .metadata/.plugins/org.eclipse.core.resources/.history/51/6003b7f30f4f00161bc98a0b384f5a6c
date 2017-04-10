@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://camel.apache.org/schema/cxf
+   http://camel.apache.org/schema/cxf/camel-cxf.xsd
+   http://cxf.apache.org/jaxrs
+   http://cxf.apache.org/schemas/jaxrs.xsd
+   http://camel.apache.org/schema/spring
+   http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+
+ <jaxrs:client id="cityServiceClient" address="http://localhost:8123/REST/"
+            serviceClass="com.santosh.CityService" username="santosh" password="pwd">
+    </jaxrs:client>
+	<cxf:rsServer id="hubService" address="/vhub"
+		loggingFeatureEnabled="true">
+		<cxf:serviceBeans>
+			<ref bean="hubServiceImpl" />
+		</cxf:serviceBeans>
+	</cxf:rsServer>
+
+	<bean id="hubServiceImpl" class="com.virtusa.vhub.hub.HubResourceImpl">
+	</bean>
+</blueprint>

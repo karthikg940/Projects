@@ -1,0 +1,15 @@
+package com.virtusa.vhub.partner1.resource.interfac;
+
+@Path("say")
+public interface PartnerInt1 {
+
+	@GET
+	@Path("hello/{name}")
+	public String handleGet(@PathParam("name") String name);
+	
+	@POST
+	@Path("hello/")
+	
+	public String create();
+
+}

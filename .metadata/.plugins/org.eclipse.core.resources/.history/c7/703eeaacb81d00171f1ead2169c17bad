@@ -1,0 +1,40 @@
+package com.virtusa.bean;
+
+import org.apache.camel.Consume;
+import org.apache.camel.ConsumerTemplate;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.mock.MockEndpoint;
+import org.apache.camel.test.junit4.CamelTestSupport;
+import org.junit.Test;
+
+public class FirstMockTest  extends CamelTestSupport{
+
+//	@Consume(uri="mock:efgh")
+//	ConsumerTemplate consume;
+	@Override
+	protected RouteBuilder createRouteBuilder() throws Exception {
+		 
+		return new RouteBuilder() {
+			
+			@Override
+			public void configure() throws Exception {
+				 
+				from("direct:file1")
+				//from("file://inbox")
+				.to("mock:abcd");
+				
+			}
+		};
+	}
+	
+	@Test
+	public void testabcd() throws Exception{
+		MockEndpoint mock=getMockEndpoint("mock:abcd");
+		//mock.expectedMessageCount(1);
+		mock.expectedBodiesReceived("message","message1");
+		template.sendBody("direct:file1","message");
+		template.sendBody("direct:file1","message1");
+		mock.assertIsSatisfied();
+		
+	}
+}

@@ -1,0 +1,45 @@
+package com.virtusa.vhub.consumer1;
+
+import javax.jms.JMSException;
+import javax.jms.QueueConnection;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.QueueReceiver;
+import javax.jms.QueueSession;
+import javax.jms.Session;
+import javax.naming.NamingException;
+
+import org.springframework.jms.annotation.JmsListener;
+
+public class CommandExecutorImpl implements CommandExecutorInterface {
+
+	private QueueConnectionFactory connectionFactory;
+
+	@JmsListener(destination = "LLY.TRAINING.EMAIL.IN")
+	@Override
+	public void execute() {
+		try {
+			/*
+			 * System.out.println(ActiveMQInitialContextFactory.class);
+			 * Properties props = new Properties();
+			 * props.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+			 * "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
+			 * InitialContext context = new InitialContext(props);
+			 * QueueConnectionFactory connectionFactory =
+			 * (QueueConnectionFactory) context
+			 * .lookup("remoteConsumerConnectionFactory");
+			 */
+			// Queue queue = (Queue) context.lookup("ReqQueue");
+			QueueConnection conn = connectionFactory.createQueueConnection();
+			QueueSession sess = conn.createQueueSession(false,
+					Session.AUTO_ACKNOWLEDGE);
+			QueueReceiver receiver = sess.createReceiver(queue);
+			receiver.setMessageListener(new CommandMessageListener());
+			conn.start();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (JMSException e) {
+			e.printStackTrace();
+		}
+
+	}
+}

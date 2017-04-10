@@ -1,0 +1,14 @@
+package com.virtusa.practice;
+
+public class Widening {
+
+	public static void main(String[] args) {
+	
+		 int i=1572864;
+		 System.out.println(i);
+		 System.out.println(Integer.toBinaryString(i));
+		 System.out.println(Integer.toUnsignedLong(i));
+//		 1100 0000 0000 0000 0000 0
+	}
+
+}

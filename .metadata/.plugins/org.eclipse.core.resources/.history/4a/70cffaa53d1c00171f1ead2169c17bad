@@ -1,0 +1,29 @@
+package com.virtusa.bean;
+
+import org.apache.camel.EndpointInject;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.test.spring.CamelSpringTestSupport;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class CamelRiderTest  extends CamelSpringTestSupport{
+
+	private String inboxDir;
+	private String outboxDir;
+	
+	@EndpointInject
+	private ProducerTemplate template;
+	
+	public void setUp() throws Exception {
+		super.setUp();
+		inboxDir=context.resolvePropertyPlaceholders("{{file.inbox}}");
+		outboxDir=context.resolvePropertyPlaceholders("{{file.outbox}}");
+		
+	};
+	
+	@Override
+	protected AbstractApplicationContext createApplicationContext() {
+		 return new ClassPathXmlApplicationContext();
+	}
+
+}

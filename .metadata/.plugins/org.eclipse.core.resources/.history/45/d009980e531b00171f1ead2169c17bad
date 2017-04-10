@@ -1,0 +1,29 @@
+package com.virtusa.bean;
+
+import java.util.Map;
+
+import org.apache.camel.Body;
+import org.apache.camel.Handler;
+import org.apache.camel.Header;
+import org.apache.camel.Headers;
+
+import com.virtusa.routebuilder.OrderBean;
+
+public class HelloBean {
+	
+	public String hello(String name)
+	{
+		System.out.println("hello bean");
+		return "hello"+name;
+	}
+	
+	@Handler
+	public String hello1(@Headers Map name,@Body OrderBean order)
+	{
+		System.out.println("hello1 bean");
+		System.out.println(name);
+		System.out.println(order);
+		return "hello1"+name;
+	}
+
+}

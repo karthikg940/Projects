@@ -1,0 +1,96 @@
+package com.virtusa.test.web.rest
+
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+//import org.springframework.boot.actuate.health.OrderedHealthAggregator.StatusComparator;
+import org.springframework.http.MediaType
+import spock.lang.Unroll;
+import static org.hamcrest.Matchers.*;
+
+import com.virtusa.test.base.TransactionalWebIntegrationTest
+import com.virtusa.test.base.WebAppIntegrationBaseSpecification
+
+@TransactionalWebIntegrationTest
+class ShippmentResourceTest extends WebAppIntegrationBaseSpecification {
+
+	@Unroll
+	def "get a record from database" (id,orderId,productId,statusCode) {
+		given:"based on the id we need to fetch a single record from database"
+
+		when: "I have given an id"
+		def createResponse=this.mockMvc.perform(get("/api/shipment/${id}").accept(MediaType.APPLICATION_JSON))
+		then: "a record is fetched"
+		createResponse.andExpect(status().is(statusCode))
+		where:
+		id | orderId | productId | statusCode
+		1  |  1      |   1       | 200
+	}
+	
+	@Unroll
+	def "get the list of records from database" (id,orderId,productId,statusCode) {
+		given:"based on the id we need to fetch a single record from database"
+
+		when: "I call getAll method"
+		def createResponse=this.mockMvc.perform(get("/api/shipment").accept(MediaType.APPLICATION_JSON))
+		then: "list of records are fetched"
+		createResponse.andExpect(status().is(statusCode))
+		where:
+		id | orderId | productId | statusCode
+		1  |  1      |   1       | 200
+		2  |  2      |   2       | 200
+	}
+	
+	@Unroll
+	def "update a record in database" (id,orderId,productId,statusCode) {
+		given:"based on the id we need to fetch a single record from database"
+		def inputJson =  JsonOutput.toJson([id:3,orderId:3,productId:3,statusCode:200])
+		when: "I send an id"
+		def createResponse=this.mockMvc.perform(put("/api/shipment/${id}").accept(MediaType.APPLICATION_JSON))
+		then: "a record is fetched from the database"
+		createResponse.andExpect(status().is(statusCode))
+		where:
+		id | orderId | productId | statusCode
+		1  |  1      |   1       | 200
+	    2  |  2      |   2       | 200
+	}
+	
+	def "Create a new shipment record and update data" (firstName, lastName, dob, weight, mrn, gender, phone1, phone2, line1, line2, city, state, zip, email, maritalStatus, statusCode) {
+		given:"I am an authenticated NMT"
+		// TODO - Login flow
+		def inputJson =  JsonOutput.toJson([id:3,orderId:3,productId:3,statusCode:200])
+		def inputJson2 =  JsonOutput.toJson([firstName: "vijay", lastName:'Last', dob: '04/22/2016', weight:90.6, mrn:1232434, gender:'M',
+			phone1: '1234567890', phone2: '0987654321', line1: '1600, Amphitheatre Parkway Avenue', line2:	null	, city:'Mountain View'	, state: 'CA', zip: 34800, email:'test@test.com', maritalStatus: 'Married'])
+		when: "I enter all the required information for a patient"
+				def createResponse = this.mockMvc.perform(post("/api/patient").content(inputJson).contentType(MediaType.APPLICATION_JSON))
+		then: "a patient should be created"
+		createResponse.andExpect(status().is(statusCode))
+		def location=createResponse.andReturn().getResponse().getHeader("location")
+//		print "loca3333.........."+location
+//		def idval=location.split("/")[3]
+//		println "idval&&&&&&&&&&&&&&&"+idval
+		def response
+		def response1
+		if(location)
+		response = this.mockMvc.perform(put(location).content(inputJson2).contentType(MediaType.APPLICATION_JSON))
+//			print "resp........."+response.andReturn().getResponse().getContentAsString()+".....";
+			if(response)
+				response1 = this.mockMvc.perform(get(location).contentType(MediaType.APPLICATION_JSON))
+//				print "resp1........."+response1.andReturn().getResponse().getContentAsString()+".....";
+			if(response1)
+			response1.andExpect(status().is(200))andExpect(jsonPath('$.firstName').value("vijay"))
+
+		where:firstName	|	lastName	|	dob				|	weight	|	mrn		|	gender	|	phone1			|	phone2			|	line1								|	line2	|	city			|	state	|	zip		|	email				|	maritalStatus	|	statusCode
+		'First'		|	'Last'		|	'04/22/2016'	|	90.6	|	1232434	|	'M'		|	'1234567890'	|	'0987654321'	|	'1600, Amphitheatre Parkway Avenue'	|	null	|	'Mountain View'	| 	'CA'	|  34800	|	'test@test.com'		|	'Married'		|	201
+		 null		|	'Last'		|	'04/22/2016'	|	90.6	|	1232434	|	'M'		|	'1234567890'	|	'0987654321'	|	'1600, Amphitheatre Parkway Avenue'	|	null	|	'Mountain View'	| 	'CA'	|  34800	|	'test@test.com'		|	'Married'		|	400
+		'First'		|	null		|	'04/22/2016'	|	90.6	|	1232434	|	'M'		|	'1234567890'	|	'0987654321'	|	'1600, Amphitheatre Parkway Avenue'	|	null	|	'Mountain View'	| 	'CA'	|  34800	|	'test@test.com'		|	'Married'		|	400
+		
+	}
+	
+	
+	
+	
+	
+}

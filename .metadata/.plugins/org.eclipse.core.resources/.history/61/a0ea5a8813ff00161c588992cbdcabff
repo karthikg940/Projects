@@ -1,0 +1,12 @@
+package com.virtusa.practice;
+
+public class Widening {
+
+	public static void main(String[] args) {
+	
+		 int i11='a';
+		 System.out.println(i11);
+
+	}
+
+}

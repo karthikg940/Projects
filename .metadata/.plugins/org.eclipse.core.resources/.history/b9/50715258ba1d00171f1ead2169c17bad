@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+  <!-- <bean id="hellobean" class="com.virtusa.bean.HelloBean"/> -->
+  <!-- <bean id="invoke" class="com.virtusa.bean.InvokeWithProcessorRoute"/> -->
+  <bean id="properties" class="org.apache.camel.component.properties.PropertiesComponent">
+  <property name="location" value="classpath:external.properties"></property>
+  </bean>
+  <camel:camelContext id="context" >
+<!--   <camel:propertyPlaceholder id="properties" location="classpath:external.properties"/> -->
+  <camel:route>
+  <camel:from uri="{{file.inbox}}?noop=true"/>
+  <camel:to  uri="{{file.outbox}}"/>
+  </camel:route>
+  </camel:camelContext>
+  </beans>

@@ -1,0 +1,18 @@
+package com.virtusa.vhub.partner1.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.virtusa.vhub.partner1.entity.Command;
+
+public class PartnerService {
+
+	List<Command> list=new ArrayList<Command>();
+	
+	public Command save(Command command)
+	{
+		list.add(command);
+		return command;
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.virtusa.vhub.partner1.resource.interfac;
+
+public interface PartnerInt1 {
+
+}

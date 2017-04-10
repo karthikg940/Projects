@@ -1,0 +1,9 @@
+package com.virtusa.bean;
+
+import org.apache.camel.test.junit4.CamelSpringTestSupport;
+
+
+
+public class SpringFirstTest extends CamelSpringTestSupport{
+
+}

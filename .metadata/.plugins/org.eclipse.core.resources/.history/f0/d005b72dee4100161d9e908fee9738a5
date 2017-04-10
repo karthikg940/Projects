@@ -1,0 +1,5 @@
+package com.virtusa.training.startup.springboot.data.enity;
+
+public class Shipment {
+
+}

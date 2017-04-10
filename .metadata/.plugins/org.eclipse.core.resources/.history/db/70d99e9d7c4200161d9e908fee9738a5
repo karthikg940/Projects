@@ -1,0 +1,8 @@
+package com.virtusa.shipment.data.repository;
+
+public class Snippet {
+	public static void main(String[] args) {
+		com.virtusa.shipment.data.repository
+	}
+}
+

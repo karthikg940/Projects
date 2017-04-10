@@ -1,0 +1,6 @@
+package com.virtusa.vhub.hub;
+
+public interface CommandRouter{
+
+	public String message(String command);
+}

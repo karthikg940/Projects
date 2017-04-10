@@ -1,0 +1,7 @@
+package com.virtusa.vhub.consumer1;
+
+public interface CommandRouterInterface {
+	
+	public void executor(Message msg);
+
+}

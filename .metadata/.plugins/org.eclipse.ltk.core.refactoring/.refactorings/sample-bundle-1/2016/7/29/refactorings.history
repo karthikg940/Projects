@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;blueprint1.xml&apos; to &apos;blueprint&apos;&#x0D;&#x0A;- Original project: &apos;sample-bundle-1&apos;&#x0D;&#x0A;- Destination element: &apos;blueprint&apos;&#x0D;&#x0A;- Original element: &apos;blueprint1.xml&apos;" description="Copy file" element1="src/main/resources/OSGI-INF/blueprint/blueprint1.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1468562386762" target="/karafcxf.service.impl/src/main/resources/OSGI-INF/blueprint" units="0" version="1.0"/>
+</session>

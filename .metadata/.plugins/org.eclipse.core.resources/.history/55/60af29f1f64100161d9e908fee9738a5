@@ -1,0 +1,18 @@
+package com.virtusa.training.startup.springboot.biz.service;
+
+import javax.inject.Inject;
+
+import com.virtusa.training.startup.springboot.data.enity.ShippmentEntity;
+import com.virtusa.training.startup.springboot.data.repository.ShippmentRepository;
+
+public class ShippmentService {
+
+	@Inject
+	private ShippmentRepository shippmentRepository;
+	
+	public ShippmentEntity create(Long oId,ShippmentEntity shippmentEntity)
+	{
+		shippmentEntity.setOrderId(oId);
+		return shippmentRepository.save(entity)
+	}
+}

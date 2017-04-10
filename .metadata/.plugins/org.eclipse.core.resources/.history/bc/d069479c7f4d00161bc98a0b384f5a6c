@@ -1,0 +1,14 @@
+package com.virtusa.vhub.hub;
+
+ 
+
+public class CommandRouterImpl implements CommandRouter{
+
+	//Logger LOGGER = Logger.getLogger(CommandRouterImpl.class.getName());
+
+	
+	 
+	
+	//LOGGER.info("this is entity obj"+command);
+//	System.out.println("this is entity obj"+command);
+}	

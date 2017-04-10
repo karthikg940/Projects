@@ -1,0 +1,46 @@
+package com.virtusa.shipment.biz.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.virtusa.shipment.data.enity.ShippmentEntity;
+import com.virtusa.shipment.data.repository.ShippmentRepository;
+
+@Service
+@Transactional
+public class ShippmentService {
+
+	@Inject
+	private ShippmentRepository shipmentRepository;
+
+	public ShippmentEntity create(ShippmentEntity shippmentEntity) {
+		return shipmentRepository.save(shippmentEntity);
+	}
+
+	public List<ShippmentEntity> getAll() {
+		return shipmentRepository.findAll();
+	}
+
+	public ShippmentEntity get(long id) {
+		return shipmentRepository.findOne(id);
+	}
+
+	public ShippmentEntity update(ShippmentEntity shipmentEntity) {
+		return shipmentRepository.save(shipmentEntity);
+	}
+
+	public ShippmentEntity partialUpdate(long id,
+			ShippmentEntity shippmentEntity) {
+		ShippmentEntity shipmentObj = shipmentRepository.findOne(id);
+		
+		return shipmentRepository.save(shipmentObj);
+	}
+
+	public void delete(long id) {
+		shipmentRepository.delete(id);
+	}
+}

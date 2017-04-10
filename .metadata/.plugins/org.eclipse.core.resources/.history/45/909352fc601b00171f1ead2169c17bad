@@ -1,0 +1,7 @@
+package com.virtusa.test;
+
+import org.apache.camel.test.CamelTestSupport;
+
+public class FirstTest extends CamelTestSupport {
+
+}

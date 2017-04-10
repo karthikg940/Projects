@@ -1,0 +1,17 @@
+package com.virtusa.vhub.partner1.resource.impl;
+
+import com.virtusa.vhub.partner1.entity.Command;
+import com.virtusa.vhub.partner1.resource.interfac.CommandActivator;
+
+public class PartnerImpl implements CommandActivator {
+
+	private CommandResource commandResource;
+	
+	@Override
+	public Command create(Command command) {
+		return command;
+	}
+	
+	
+
+}

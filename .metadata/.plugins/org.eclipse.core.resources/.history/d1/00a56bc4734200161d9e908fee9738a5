@@ -1,0 +1,14 @@
+/*
+ * Copyright 2016, Virtusa Corporation. All Rights Reserved.
+ */
+
+package com.virtusa.shipment.springboot.data.repository;
+
+import com.virtusa.shipment.springboot.data.enity.HelloEntity;
+
+/**
+ * Hello repository.
+ */
+public interface HelloRepository extends BaseRepository<HelloEntity, Long> {
+	
+}

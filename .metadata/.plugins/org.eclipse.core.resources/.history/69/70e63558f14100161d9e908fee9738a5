@@ -1,0 +1,5 @@
+package com.virtusa.training.startup.springboot.web.rest.controller;
+
+public class ShippmentService {
+
+}

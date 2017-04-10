@@ -1,0 +1,6 @@
+package com.virtusa.test.web.rest;
+
+
+public class ShipmentResourceTest{
+
+}

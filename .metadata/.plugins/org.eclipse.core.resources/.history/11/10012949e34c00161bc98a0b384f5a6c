@@ -1,0 +1,10 @@
+package com.virtusa.vhub.hub;
+
+
+@Path("hub")
+public interface CommandRouter{
+	@POST
+	@Consumes("application/json")
+	@Produces("application/xml")
+	public String message(String command);
+}

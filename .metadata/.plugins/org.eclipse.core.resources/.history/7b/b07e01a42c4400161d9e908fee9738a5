@@ -1,0 +1,7 @@
+package com.virtusa.test.web.rest;
+
+import com.virtusa.test.base.WebAppIntegrationBaseSpecification;
+
+public class ShipmentTest {
+
+}

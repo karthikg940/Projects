@@ -1,0 +1,9 @@
+package com.virtusa.vhub.partner1.resource.interfac;
+
+@Path("say")
+public interface PartnerInt1 {
+
+	@POST
+	public String create(String command);
+
+}

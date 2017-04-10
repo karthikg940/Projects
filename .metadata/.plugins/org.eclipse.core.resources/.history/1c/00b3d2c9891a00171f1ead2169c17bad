@@ -1,0 +1,20 @@
+package com.virtusa.routebuilder;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+
+public class CSVMap implements Processor {
+
+	@Override
+	public void process(Exchange exchange) throws Exception {
+		 
+		Map<String,Object> map=new LinkedHashMap<String,Object>();
+		map.put("first", "abcd");
+		map.put("second",1234);
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.virtusa.test.web.rest
+
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+//import org.springframework.boot.actuate.health.OrderedHealthAggregator.StatusComparator;
+import org.springframework.http.MediaType
+import spock.lang.Unroll;
+import static org.hamcrest.Matchers.*;
+
+import com.virtusa.test.base.TransactionalWebIntegrationTest
+import com.virtusa.test.base.WebAppIntegrationBaseSpecification
+class ShippmentResourceTest {
+
+}

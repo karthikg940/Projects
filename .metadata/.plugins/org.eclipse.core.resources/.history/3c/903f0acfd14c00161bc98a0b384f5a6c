@@ -1,0 +1,21 @@
+package com.virtusa.vhub.partner1.entity;
+
+public class Command {
+
+	int id;
+	String command;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCommand() {
+		return command;
+	}
+	public void setCommand(String command) {
+		this.command = command;
+	}
+	
+	
+}

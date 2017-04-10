@@ -1,0 +1,17 @@
+package com.virtusa.practice;
+
+public class NestedClass {
+
+	int i;
+	
+	void m2()
+	{
+	}
+	
+	static class innerclass{
+
+		void m1(){
+		
+		}
+	}
+}

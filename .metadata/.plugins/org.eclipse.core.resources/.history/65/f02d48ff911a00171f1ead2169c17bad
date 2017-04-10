@@ -1,0 +1,16 @@
+package com.virtusa.routebuilder;
+
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+
+public class BindyProcessor implements Processor {
+
+	@Override
+	public void process(Exchange exchange) throws Exception {
+		 
+		BindyBean bindy=new BindyBean(1,"abcd");
+		exchange.getOut().setBody(bindy);
+		
+	}
+
+}

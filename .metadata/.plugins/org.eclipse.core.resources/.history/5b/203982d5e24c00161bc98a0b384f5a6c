@@ -1,0 +1,6 @@
+package com.virtusa.vhub.hub;
+
+public interface CommandResource{
+
+	public String message(String command);
+}

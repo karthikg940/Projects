@@ -1,0 +1,108 @@
+package com.virtusa.shipment.web.rest.controller;
+
+import java.util.Iterator;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.virtusa.shipment.biz.service.ShippmentService;
+import com.virtusa.shipment.data.enity.ShippmentEntity;
+
+@RestController
+@RequestMapping("/api/shipment")
+public class ShippmentController {
+
+	@Inject
+	private ShippmentService shippmentService;
+
+	@RequestMapping(method = RequestMethod.POST)
+	public  ResponseEntity<ShippmentEntity> create(
+			@RequestBody ShippmentEntity shippmentEntity) {
+		System.out.println(shippmentEntity.getStatus()+"status is this");
+		if(shippmentEntity.getStatus().equals("null"))
+		{
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		}
+		ShippmentEntity shipmentObj = shippmentService.create(shippmentEntity);
+//		Link link = linkTo(ShippmentController.class).slash(id).withSelfRel();
+//		return ResponseEntity.created(new URI("/api/shipment/" + id))
+//				.body(link);
+		return ResponseEntity.status(HttpStatus.CREATED).body(shipmentObj);
+	}
+	
+//	@ResponseStatus( HttpStatus.OK )
+//	public  Long create(
+//			@RequestBody ShippmentEntity shippmentEntity) {
+//		long id = shippmentService.create(shippmentEntity);
+////		Link link = linkTo(ShippmentController.class).slash(id).withSelfRel();
+////		return ResponseEntity.created(new URI("/api/shipment/" + id))
+////				.body(link);
+//		return id;
+//	}
+	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<ShippmentEntity>> getAll() {
+		List<ShippmentEntity> list = shippmentService.getAll();
+		if(list.isEmpty())
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		else
+		{
+		return ResponseEntity.ok(list);
+		}
+	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<ShippmentEntity> get(@PathVariable("id") Long id) {
+		ShippmentEntity shipmentObj = shippmentService.get(id);
+		
+		if(shipmentObj==null)
+		{
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		}
+		
+		return ResponseEntity.ok(shipmentObj);
+	}
+	
+//	public ResponseEntity<ShippmentEntity> get(@PathVariable("id") Long id)
+//	{
+//		ShippmentEntity shipmentObj = shippmentService.get(id);
+//		
+//		if(shipmentObj==null)
+//		{
+//			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+//		}
+//		return ResponseEntity.ok(shipmentObj);
+//	}
+
+	@RequestMapping(method = RequestMethod.PUT)
+	public ResponseEntity update(
+			@RequestBody ShippmentEntity shippmentEntity) {
+		ShippmentEntity shipmentObj = shippmentService.update(shippmentEntity);
+		return ResponseEntity.ok();
+	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.PATCH)
+	public ResponseEntity<ShippmentEntity> update(@PathVariable("id") long id,
+			@RequestBody ShippmentEntity shippmentEntity) {
+		ShippmentEntity shipmentObj = shippmentService.partialUpdate(id,
+				shippmentEntity);
+		return ResponseEntity.status(HttpStatus.OK).body(shipmentObj);
+	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable("id") long id) {
+		shippmentService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+}

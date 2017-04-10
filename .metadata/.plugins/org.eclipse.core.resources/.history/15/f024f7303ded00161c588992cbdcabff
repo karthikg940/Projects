@@ -1,0 +1,54 @@
+package com.virtusa.practice;
+
+ class Example1 {
+
+	 public void m1()
+	 {
+		 System.out.println("inside m1 method");
+	 }
+}
+ class Sample extends Example1{
+	 
+	 public void m2(){
+		 System.out.println("inside m2 method");
+	 }
+ }
+ 
+ 
+ interface F{}
+ class A implements F{}
+ class B extends A{}
+ 
+ class Members extends B
+ {
+	 static void m3(Object m)
+	 {
+		//m.m1();
+		//m.m2();
+		 if(m instanceof Sample)
+		 {
+			 Example1 e=(Example1)m;
+			 e.m1();
+		 }
+	 
+		Sample s=(Sample)m;
+		s.m2();
+	 
+		// Sample s=(Sample)m;
+	 }
+	 public static void main(String[] args) {
+		 Members.m3(new Example1());
+		 Members.m3(new Sample());
+		 Members.m3(new Object());
+		/* char ch='a'+'b';
+		 int i=ch;
+//		 int i='a';
+//		 char c=ch+'a';
+		 System.out.println(i);
+		 B b=new B();
+		 A a=b;
+		 F f=(A)b;
+		 F f=(Members)b;
+		 B b1=(B)(A)b;*/
+	}
+ }

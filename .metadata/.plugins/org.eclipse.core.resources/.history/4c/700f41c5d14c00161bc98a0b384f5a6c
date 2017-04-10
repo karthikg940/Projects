@@ -1,0 +1,7 @@
+package com.virtusa.vhub.partner1.entity;
+
+public class Command {
+
+	int id;
+	String command;
+}
